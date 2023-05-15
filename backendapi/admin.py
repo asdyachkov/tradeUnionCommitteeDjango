@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import News, Pins, Documents, Benefits
+from .models import News, Pins, Documents, Benefits, StudentsContacts, TeachersContacts
 
 
 class NewsAdmin(admin.ModelAdmin):
@@ -33,7 +33,21 @@ class BenefitsAdmin(admin.ModelAdmin):
     search_fields = ("id", "theme", "description")
 
 
+class StudentsContactsAdmin(admin.ModelAdmin):
+    list_display = ("id", "lecture_hall", "working_hours", "phone", "mail")
+    list_display_links = ("id", "phone", "mail")
+    search_fields = ("id", "lecture_hall", "phone", "mail")
+
+
+class TeachersContactsAdmin(admin.ModelAdmin):
+    list_display = ("id", "lecture_hall", "working_hours", "phone", "mail")
+    list_display_links = ("id", "phone", "mail")
+    search_fields = ("id", "lecture_hall", "phone", "mail")
+
+
 admin.site.register(News, NewsAdmin)
 admin.site.register(Pins, PinsAdmin)
 admin.site.register(Documents, DocumentsAdmin)
 admin.site.register(Benefits, BenefitsAdmin)
+admin.site.register(StudentsContacts, StudentsContactsAdmin)
+admin.site.register(TeachersContacts, TeachersContactsAdmin)

@@ -68,3 +68,47 @@ class Benefits(models.Model):
 
     def __str__(self):
         return str(self.theme)
+
+
+class StudentsContacts(models.Model):
+
+    lecture_hall = models.CharField(null=False, max_length=200, verbose_name="Аудитория")
+    working_hours = models.CharField(null=False, max_length=200, verbose_name="Часы работы")
+    phone = models.CharField(null=False, max_length=200, verbose_name="Телефон")
+    mail = models.CharField(null=False, max_length=200, verbose_name="Почта")
+
+    class Meta:
+        verbose_name = "Контакты для студентов"
+        verbose_name_plural = "Контакты для студентов"
+        db_table = "students_contacts"
+        ordering = ["id"]
+
+    def save(self, *args, **kwargs):
+        if self.__class__.objects.count():
+            self.pk = self.__class__.objects.first().pk
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return "Контакты для студентов"
+
+
+class TeachersContacts(models.Model):
+
+    lecture_hall = models.CharField(null=False, max_length=200, verbose_name="Аудитория")
+    working_hours = models.CharField(null=False, max_length=200, verbose_name="Часы работы")
+    phone = models.CharField(null=False, max_length=200, verbose_name="Телефон")
+    mail = models.CharField(null=False, max_length=200, verbose_name="Почта")
+
+    class Meta:
+        verbose_name = "Контакты для сотрудников"
+        verbose_name_plural = "Контакты для сотрудников"
+        db_table = "teachers_contacts"
+        ordering = ["id"]
+
+    def save(self, *args, **kwargs):
+        if self.__class__.objects.count():
+            self.pk = self.__class__.objects.first().pk
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return "Контакты для сотрудников"
