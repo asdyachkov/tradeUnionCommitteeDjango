@@ -1,8 +1,14 @@
 from rest_framework import generics
 
 from .models import News, Pins, Documents, Benefits, StudentsContacts, TeachersContacts
-from .serializers import NewsSerializer, PinsSerializer, DocumentsSerializer, BenefitsSerializer, \
-    StudentsContactsSerializer, TeachersContactsSerializer
+from .serializers import (
+    NewsSerializer,
+    PinsSerializer,
+    DocumentsSerializer,
+    BenefitsSerializer,
+    StudentsContactsSerializer,
+    TeachersContactsSerializer,
+)
 
 
 class NewsApiView(generics.ListAPIView):

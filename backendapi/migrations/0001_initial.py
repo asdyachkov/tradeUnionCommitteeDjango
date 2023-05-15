@@ -5,71 +5,107 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Benefits',
+            name="Benefits",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('theme', models.CharField(max_length=200)),
-                ('description', models.CharField(max_length=200)),
-                ('body', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("theme", models.CharField(max_length=200)),
+                ("description", models.CharField(max_length=200)),
+                ("body", models.TextField()),
             ],
             options={
-                'verbose_name': 'Льгота',
-                'verbose_name_plural': 'Льготы',
-                'db_table': 'benefits',
-                'ordering': ['id', 'theme'],
+                "verbose_name": "Льгота",
+                "verbose_name_plural": "Льготы",
+                "db_table": "benefits",
+                "ordering": ["id", "theme"],
             },
         ),
         migrations.CreateModel(
-            name='Documents',
+            name="Documents",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('theme', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('admin_upload', models.FileField(upload_to='media')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("theme", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("admin_upload", models.FileField(upload_to="media")),
             ],
             options={
-                'verbose_name': 'Документ',
-                'verbose_name_plural': 'Документы',
-                'db_table': 'documents',
-                'ordering': ['id', 'theme'],
+                "verbose_name": "Документ",
+                "verbose_name_plural": "Документы",
+                "db_table": "documents",
+                "ordering": ["id", "theme"],
             },
         ),
         migrations.CreateModel(
-            name='News',
+            name="News",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('theme', models.CharField(max_length=200)),
-                ('body', models.TextField()),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Время создания новости')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("theme", models.CharField(max_length=200)),
+                ("body", models.TextField()),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        default=django.utils.timezone.now,
+                        verbose_name="Время создания новости",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Новость',
-                'verbose_name_plural': 'Новости',
-                'db_table': 'news',
-                'ordering': ['id', 'created_at'],
+                "verbose_name": "Новость",
+                "verbose_name_plural": "Новости",
+                "db_table": "news",
+                "ordering": ["id", "created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Pins',
+            name="Pins",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('theme', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('image_link', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("theme", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("image_link", models.TextField()),
             ],
             options={
-                'verbose_name': 'Пин',
-                'verbose_name_plural': 'Пины',
-                'db_table': 'pins',
-                'ordering': ['id', 'theme'],
+                "verbose_name": "Пин",
+                "verbose_name_plural": "Пины",
+                "db_table": "pins",
+                "ordering": ["id", "theme"],
             },
         ),
     ]

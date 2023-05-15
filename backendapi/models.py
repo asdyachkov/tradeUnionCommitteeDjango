@@ -3,7 +3,6 @@ from django.db import models
 
 
 class News(models.Model):
-
     theme = models.CharField(null=False, max_length=200, verbose_name="Тема новости")
     body = models.TextField(null=False, verbose_name="Текст новости")
     created_at = models.DateTimeField(
@@ -23,7 +22,6 @@ class News(models.Model):
 
 
 class Pins(models.Model):
-
     theme = models.CharField(null=False, max_length=200, verbose_name="Тема пина")
     description = models.TextField(null=False, verbose_name="Описание пина")
     image_link = models.TextField(null=False, verbose_name="Ссылка на изображение пина")
@@ -39,10 +37,11 @@ class Pins(models.Model):
 
 
 class Documents(models.Model):
-
     theme = models.CharField(null=False, max_length=200, verbose_name="Тема документа")
     description = models.TextField(null=False, verbose_name="Описание документа")
-    admin_upload = models.FileField(upload_to='media', null=False, verbose_name="Файл документа")
+    admin_upload = models.FileField(
+        upload_to="media", null=False, verbose_name="Файл документа"
+    )
 
     class Meta:
         verbose_name = "Документ"
@@ -55,9 +54,10 @@ class Documents(models.Model):
 
 
 class Benefits(models.Model):
-
     theme = models.CharField(null=False, max_length=200, verbose_name="Тема льготы")
-    description = models.CharField(null=False, max_length=200, verbose_name="Описание льготы")
+    description = models.CharField(
+        null=False, max_length=200, verbose_name="Описание льготы"
+    )
     body = models.TextField(null=False, verbose_name="Текст льготы")
 
     class Meta:
@@ -71,9 +71,12 @@ class Benefits(models.Model):
 
 
 class StudentsContacts(models.Model):
-
-    lecture_hall = models.CharField(null=False, max_length=200, verbose_name="Аудитория")
-    working_hours = models.CharField(null=False, max_length=200, verbose_name="Часы работы")
+    lecture_hall = models.CharField(
+        null=False, max_length=200, verbose_name="Аудитория"
+    )
+    working_hours = models.CharField(
+        null=False, max_length=200, verbose_name="Часы работы"
+    )
     phone = models.CharField(null=False, max_length=200, verbose_name="Телефон")
     mail = models.CharField(null=False, max_length=200, verbose_name="Почта")
 
@@ -93,9 +96,12 @@ class StudentsContacts(models.Model):
 
 
 class TeachersContacts(models.Model):
-
-    lecture_hall = models.CharField(null=False, max_length=200, verbose_name="Аудитория")
-    working_hours = models.CharField(null=False, max_length=200, verbose_name="Часы работы")
+    lecture_hall = models.CharField(
+        null=False, max_length=200, verbose_name="Аудитория"
+    )
+    working_hours = models.CharField(
+        null=False, max_length=200, verbose_name="Часы работы"
+    )
     phone = models.CharField(null=False, max_length=200, verbose_name="Телефон")
     mail = models.CharField(null=False, max_length=200, verbose_name="Почта")
 

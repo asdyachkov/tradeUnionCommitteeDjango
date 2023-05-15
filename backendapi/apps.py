@@ -2,6 +2,6 @@ from django.apps import AppConfig
 
 
 class BackendapiConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'backendapi'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "backendapi"
     verbose_name = "Данные API"

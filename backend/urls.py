@@ -16,29 +16,29 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
-from django.urls import include, re_path
-from django.views.static import serve
 
 from backend import settings
-from backendapi.views import NewsApiView, PinsApiView, DocumentsApiView, BenefitsApiView, StudentsContactsApiView, \
-    TeachersContactsApiView, DocumentApiView, NewApiView
+from backendapi.views import (
+    NewsApiView,
+    PinsApiView,
+    DocumentsApiView,
+    BenefitsApiView,
+    StudentsContactsApiView,
+    TeachersContactsApiView,
+    DocumentApiView,
+    NewApiView,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    path('api/newslist/', NewsApiView.as_view()),
-    path('api/newslist/<int:pk>/', NewApiView.as_view()),
-
-    path('api/pinslist/', PinsApiView.as_view()),
-
-    path('api/documentslist/', DocumentsApiView.as_view()),
-    path('api/documentslist/<int:pk>/', DocumentApiView.as_view()),
-
-    path('api/benefitslist/', BenefitsApiView.as_view()),
-
-    path('api/studentscontactslist/', StudentsContactsApiView.as_view()),
-
-    path('api/teacherscontactslist/', TeachersContactsApiView.as_view()),
+    path("admin/", admin.site.urls),
+    path("api/newslist/", NewsApiView.as_view()),
+    path("api/newslist/<int:pk>/", NewApiView.as_view()),
+    path("api/pinslist/", PinsApiView.as_view()),
+    path("api/documentslist/", DocumentsApiView.as_view()),
+    path("api/documentslist/<int:pk>/", DocumentApiView.as_view()),
+    path("api/benefitslist/", BenefitsApiView.as_view()),
+    path("api/studentscontactslist/", StudentsContactsApiView.as_view()),
+    path("api/teacherscontactslist/", TeachersContactsApiView.as_view()),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
